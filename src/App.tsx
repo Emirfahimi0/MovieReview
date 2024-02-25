@@ -2,10 +2,7 @@ import { Fragment, FunctionComponent } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HomePage, MovieDetailsPage, MetricsPage } from "./layout";
 import { ComponentTiming } from "./layout/ComponentTiming";
-import {
-  ComponentTimingProvider,
-  MovieProvider as GlobalProvider,
-} from "./context";
+import { ComponentTimingProvider } from "./context";
 
 export const App: FunctionComponent = () => {
   const ComponentTimingHomePage = ComponentTiming(HomePage, "HomePage");
@@ -21,34 +18,32 @@ export const App: FunctionComponent = () => {
   const routes = [
     {
       index: true,
-      path: "/vite-react-router/",
+      path: "/movies/",
       element: <ComponentTimingHomePage componentName={"HomePage"} />,
     },
     {
-      path: "vite-react-router/Details",
+      path: "/movies/Details",
       element: (
         <ComponentTimingMovieDetailsPage componentName={"MovieDetailsPage"} />
       ),
     },
     {
-      path: "vite-react-router//Metrics",
+      path: "/movies/Metrics",
       element: <ComponentTimingMetricsPage componentName={"MetricsPage"} />,
     },
   ];
 
   return (
     <Fragment>
-      <GlobalProvider>
-        <ComponentTimingProvider>
-          <BrowserRouter>
-            <Routes>
-              {routes.map((route, index) => (
-                <Route key={index} {...route} />
-              ))}
-            </Routes>
-          </BrowserRouter>
-        </ComponentTimingProvider>
-      </GlobalProvider>
+      <ComponentTimingProvider>
+        <BrowserRouter>
+          <Routes>
+            {routes.map((route, index) => (
+              <Route key={index} {...route} />
+            ))}
+          </Routes>
+        </BrowserRouter>
+      </ComponentTimingProvider>
     </Fragment>
   );
 };
