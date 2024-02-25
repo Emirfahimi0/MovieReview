@@ -21,17 +21,17 @@ export const App: FunctionComponent = () => {
   const routes = [
     {
       index: true,
-      path: "/",
+      path: "/vite-react-router/",
       element: <ComponentTimingHomePage componentName={"HomePage"} />,
     },
     {
-      path: "/Details",
+      path: "vite-react-router/Details",
       element: (
         <ComponentTimingMovieDetailsPage componentName={"MovieDetailsPage"} />
       ),
     },
     {
-      path: "/Metrics",
+      path: "vite-react-router//Metrics",
       element: <ComponentTimingMetricsPage componentName={"MetricsPage"} />,
     },
   ];
