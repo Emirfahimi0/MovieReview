@@ -11,7 +11,7 @@ import { MovieDetailsComponent } from "./MovieDetailsComponent";
 import { UseApiPerformance } from "../../hooks";
 
 export const MovieDetailsPage: FunctionComponent = () => {
-  const { currentMovie, addApiMetrics } = useMovie();
+  const { currentMovie, addApiMetrics, addCurrentMovie } = useMovie();
   const [loading, setLoading] = useState<boolean>(false);
   const [details, setDetails] = useState<IMovieDetails | undefined>(undefined);
 
@@ -57,12 +57,22 @@ export const MovieDetailsPage: FunctionComponent = () => {
   }, []);
 
   useEffect(() => {
+    handleFetchMovieDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentMovie]);
+
+  useEffect(() => {
     addApiMetrics(apiName, loadingTime, functionName);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadingTime]);
   return (
     <Fragment>
-      <MovieDetailsComponent loading={loading} details={details!} />
+      <MovieDetailsComponent
+        loading={loading}
+        details={details!}
+        addCurrentMovie={addCurrentMovie}
+        currentMovie={currentMovie}
+      />
     </Fragment>
   );
 };

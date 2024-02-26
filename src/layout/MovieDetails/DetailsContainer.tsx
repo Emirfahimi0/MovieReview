@@ -41,7 +41,7 @@ export const DetailsContainer: FunctionComponent<DetailsContainerProps> = ({
               );
             })}
           </div>
-          <div className="w-auto mt-4 h-full">
+          <div className="w-auto mt-4 h-full text-ellipsis overflow-hidden">
             <p className="text-white truncate text-wrap">{overview}</p>
           </div>
           <div className="w-auto mt-4">
