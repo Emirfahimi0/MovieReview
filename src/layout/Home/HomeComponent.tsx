@@ -48,7 +48,7 @@ export const HomeComponent: FunctionComponent<HomeComponentProps> = ({
                         data-te-ripple-color="light"
                         role="button"
                         onClick={handleCurrentMovie}
-                        to={"/movies/Details"}
+                        to={"/MovieReview/movies/Details"}
                       >
                         More Details
                       </Link>
@@ -56,7 +56,7 @@ export const HomeComponent: FunctionComponent<HomeComponentProps> = ({
                         className="inline-block rounded-full px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:bg-neutral-500 hover:bg-opacity-20 hover:text-neutral-200 focus:text-neutral-200 focus:outline-none focus:ring-0 active:text-neutral-300"
                         data-te-ripple-init
                         data-te-ripple-color="light"
-                        to={"/movies/Metrics"}
+                        to={"/MovieReview/movies/Metrics"}
                         role="button"
                       >
                         Watch Metrics Performance
@@ -85,7 +85,7 @@ export const HomeComponent: FunctionComponent<HomeComponentProps> = ({
                           <Fragment key={index}>
                             <div className="flex-none">
                               <Link
-                                to={"/movies/Details"}
+                                to={"/MovieReview/movies/Details"}
                                 onClick={handleSetCurrentMovie}
                               >
                                 <img
