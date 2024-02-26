@@ -18,17 +18,17 @@ export const App: FunctionComponent = () => {
   const routes = [
     {
       index: true,
-      path: "MovieReview/movies/",
+      path: "MovieReview/",
       element: <ComponentTimingHomePage componentName={"HomePage"} />,
     },
     {
-      path: "MovieReview/movies/Details",
+      path: "MovieReview/Details",
       element: (
         <ComponentTimingMovieDetailsPage componentName={"MovieDetailsPage"} />
       ),
     },
     {
-      path: "MovieReview/movies/Metrics",
+      path: "MovieReview/Metrics",
       element: <ComponentTimingMetricsPage componentName={"MetricsPage"} />,
     },
   ];
