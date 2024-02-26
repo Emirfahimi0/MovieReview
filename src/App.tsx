@@ -1,5 +1,5 @@
 import { Fragment, FunctionComponent } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomePage, MovieDetailsPage, MetricsPage } from "./layout";
 import { ComponentTiming } from "./layout/ComponentTiming";
 import { ComponentTimingProvider } from "./context";
@@ -15,7 +15,7 @@ export const App: FunctionComponent = () => {
     "MetricsPage"
   );
 
-  const routes = [
+  const appRoutes = createBrowserRouter([
     {
       index: true,
       path: "/MovieReview/",
@@ -31,18 +31,12 @@ export const App: FunctionComponent = () => {
       path: "/MovieReview/Metrics",
       element: <ComponentTimingMetricsPage componentName={"MetricsPage"} />,
     },
-  ];
+  ]);
 
   return (
     <Fragment>
       <ComponentTimingProvider>
-        <BrowserRouter basename={import.meta.env.DEV ? "/" : "/MovieReview/"}>
-          <Routes>
-            {routes.map((route, index) => (
-              <Route key={index} {...route} />
-            ))}
-          </Routes>
-        </BrowserRouter>
+        <RouterProvider router={appRoutes} />
       </ComponentTimingProvider>
     </Fragment>
   );
