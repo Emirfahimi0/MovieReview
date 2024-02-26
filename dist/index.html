@@ -4,8 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Review</title>
-    <script type="module" crossorigin src="/MovieReview/assets/index-Dr9N073c.js"></script>
-    <link rel="stylesheet" crossorigin href="/MovieReview/assets/index-BHFnu4T5.css">
+    <script type="text/javascript">
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
+    <script type="module" crossorigin src="/MovieReview/movies/assets/index-D_jwO2nE.js"></script>
+    <link rel="stylesheet" crossorigin href="/MovieReview/movies/assets/index-BHFnu4T5.css">
   </head>
   <body>
     <div id="root"></div>
