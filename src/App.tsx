@@ -36,7 +36,7 @@ export const App: FunctionComponent = () => {
   return (
     <Fragment>
       <ComponentTimingProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.DEV ? "/" : "/MovieReview/"}>
           <Routes>
             {routes.map((route, index) => (
               <Route key={index} {...route} />
