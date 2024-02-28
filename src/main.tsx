@@ -5,8 +5,6 @@ import { MovieProvider as GlobalProvider } from "./context";
 import { App } from "./App.tsx";
 import ReactGA from "react-ga4";
 
-ReactGA.initialize("G-GQMSLTD3XR");
-
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <GlobalProvider>
