@@ -3,11 +3,14 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { MovieProvider as GlobalProvider } from "./context";
 import { App } from "./App.tsx";
+import { ErrorBoundary } from "./layout/";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <GlobalProvider>
-      <App />
-    </GlobalProvider>
+    <ErrorBoundary>
+      <GlobalProvider>
+        <App />
+      </GlobalProvider>
+    </ErrorBoundary>
   </React.StrictMode>
 );
