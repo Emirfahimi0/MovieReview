@@ -80,7 +80,7 @@ export const MovieDetailsComponent: FunctionComponent<
                       <Loading />
                     </div>
                   ) : (
-                    <section className="flex flex-row overflow-x-auto gap-4 flex-shrink-0 mt-8 max-h-full mx-auto">
+                    <section className="flex overflow-x-auto gap-4 m-auto max-w-full mt-8 ">
                       {recommendations &&
                         recommendations.map((recommendation, index) => {
                           const handleRecommendation = () => {
