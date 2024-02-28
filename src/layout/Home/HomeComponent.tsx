@@ -1,8 +1,8 @@
 import { Fragment, FunctionComponent, useState } from "react";
 import { IMovieResults } from "../../types/movie";
 import { Loading } from "../../components/Loader";
-import { Link } from "react-router-dom";
 import { TopSection, TopSectionProps } from "../../components/TopSection";
+import { MovieCard } from "../../components/MovieCard";
 
 interface HomeComponentProps {
   addCurrentMovie: (value: IMovieResults) => void;
@@ -76,20 +76,13 @@ export const HomeComponent: FunctionComponent<HomeComponentProps> = ({
 
                         return (
                           <Fragment key={index}>
-                            <div className="flex-none">
-                              <Link
-                                to={"/MovieReview/Details"}
-                                onClick={handleSetCurrentMovie}
-                              >
-                                <img
-                                  src={`${process.env.PUBLIC_API_IMAGE_PATH}/${movie.poster_path}`}
-                                  className="w-full h-80 object-fit rounded-lg"
-                                  alt={movie.title}
-                                />
-                              </Link>
-                              <h3 className="text-white font-bold p-4 text-wrap truncate">
-                                {movie.title}
-                              </h3>
+                            <div className="flex-none bg-white mb-4 rounded-lg text-yellow-400">
+                              <MovieCard
+                                handleSetCurrentMovie={handleSetCurrentMovie}
+                                imgPath={`${process.env.PUBLIC_API_IMAGE_PATH}/${movie.poster_path}`}
+                                routePath={"/MovieReview/Details"}
+                                label={movie.title}
+                              />
                             </div>
                           </Fragment>
                         );

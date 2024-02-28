@@ -69,7 +69,7 @@ export const TopSection: FunctionComponent<TopSectionProps> = ({
         <div className="flex top-4 justify-center py-2 max-w-auto">
           {value.map((_slide: any, index: number) => {
             return (
-              <div key={index} className="text-2xl cursor-pointer ">
+              <div key={index} className="text-2xl cursor-pointer">
                 <BsDot onClick={() => handleCurrentSlide(index)} />
               </div>
             );

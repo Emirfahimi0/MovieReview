@@ -63,15 +63,14 @@ export const MovieDetailsComponent: FunctionComponent<
       ) : (
         <Fragment>
           <div className="flex min-h-screen max-h-screen overflow-auto">
-            <div className="relative overflow-hidden w-full">
-              <img
-                src={`${process.env.PUBLIC_API_IMAGE_PATH_ORIGINAL}/${details?.backdrop_path}`}
-                className="object-cover w-full h-full"
-                loading={"lazy"}
-                alt="Backdrop"
-              />
-              <div className="absolute top-0 right-0 bottom-0 left-0 h-full w-full bg-fixed bg-[hsla(0,0%,0%,0.5)]">
-                <div className="flex justify-center items-center h-full p-8 md:p-16 lg:p-24 overflow-y-auto overflow-x-hidden flex-col">
+            <div
+              className="relative overflow-hidden w-full bg-cover"
+              style={{
+                backgroundImage: `url(${process.env.PUBLIC_API_IMAGE_PATH_ORIGINAL}/${details?.backdrop_path})`,
+              }}
+            >
+              <div className="h-full w-full bg-fixed bg-[hsla(0,0%,0%,0.75)]">
+                <div className="flex justify-center items-center h-full p-8 md:p-16 lg:p-24 overflow-y-auto flex-col">
                   {details === undefined ? null : (
                     <DetailsContainer {...details} />
                   )}
@@ -80,7 +79,7 @@ export const MovieDetailsComponent: FunctionComponent<
                       <Loading />
                     </div>
                   ) : (
-                    <section className="flex overflow-x-auto gap-4 m-auto max-w-full mt-8 ">
+                    <section className="flex justify-center items-center gap-4 max-w-[800px] max-h-[420px] overflow-auto py-8">
                       {recommendations &&
                         recommendations.map((recommendation, index) => {
                           const handleRecommendation = () => {
