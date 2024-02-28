@@ -39,7 +39,7 @@ export const HomeComponent: FunctionComponent<HomeComponentProps> = ({
     setCurrentIndex(index);
   };
 
-  const topSectionProps: TopSectionProps<IMovieResults[]> = {
+  const topSectionProps: TopSectionProps = {
     currentIndex,
     handleCurrentSlide,
     handleNextSlide,

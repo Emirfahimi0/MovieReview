@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Fragment, FunctionComponent } from "react";
 import {
   BsChevronCompactLeft,
@@ -6,23 +7,23 @@ import {
 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-export interface TopSectionProps<T> {
+export interface TopSectionProps {
   handleViewDetails: () => void;
   handlePrevSlide: () => void;
   handleNextSlide: () => void;
   handleCurrentSlide: (value: number) => void;
-  value: T;
+  value: any;
   currentIndex: number;
 }
 
-export const TopSection: FunctionComponent<TopSectionProps<T>> = ({
+export const TopSection: FunctionComponent<TopSectionProps> = ({
   handleViewDetails,
   handlePrevSlide,
   handleNextSlide,
   value,
   handleCurrentSlide,
   currentIndex,
-}: TopSectionProps<T>) => {
+}: TopSectionProps) => {
   return (
     <Fragment>
       <div className="max-w-[1400px] h-[780px] w-full m-auto py-16 relative group">
@@ -66,7 +67,7 @@ export const TopSection: FunctionComponent<TopSectionProps<T>> = ({
           <BsChevronCompactRight size={30} onClick={handleNextSlide} />
         </div>
         <div className="flex top-4 justify-center py-2 max-w-auto">
-          {value.map((_slide, index) => {
+          {value.map((_slide: any, index: number) => {
             return (
               <div key={index} className="text-2xl cursor-pointer ">
                 <BsDot onClick={() => handleCurrentSlide(index)} />
