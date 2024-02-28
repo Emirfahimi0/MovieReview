@@ -1,17 +1,35 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { reportWebVitals } from "./reportWebVitals"; // Import the function
 import { MovieProvider as GlobalProvider } from "./context";
-
 import { App } from "./App.tsx";
+import ReactGA from "react-ga4";
+import { ErrorBoundary } from "./layout/";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <GlobalProvider>
-      <App />
-    </GlobalProvider>
+    <ErrorBoundary>
+      <GlobalProvider>
+        <App />
+      </GlobalProvider>
+    </ErrorBoundary>
   </React.StrictMode>
 );
 
-reportWebVitals();
+ReactGA.initialize([
+  {
+    trackingId: "G-GQMSLTD3XR",
+  },
+]);
+
+ReactGA.send({ hitType: "pageview", page: "/my-path", title: "Main" });
+
+// Send a custom event
+ReactGA.event({
+  category: "your category",
+  action: "your action",
+  label: "your label", // optional
+  value: 99, // optional, must be a number
+  nonInteraction: true, // optional, true/false
+  transport: "xhr", // optional, beacon/xhr/image
+});

@@ -1,8 +1,9 @@
 import { Fragment, FunctionComponent } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage, MovieDetailsPage, MetricsPage } from "./layout";
 import { ComponentTiming } from "./layout/ComponentTiming";
 import { ComponentTimingProvider } from "./context";
+import { Header } from "./components/NavBar";
 
 export const App: FunctionComponent = () => {
   const ComponentTimingHomePage = ComponentTiming(HomePage, "HomePage");
@@ -15,28 +16,32 @@ export const App: FunctionComponent = () => {
     "MetricsPage"
   );
 
-  const appRoutes = createBrowserRouter([
-    {
-      index: true,
-      path: "/MovieReview/",
-      element: <ComponentTimingHomePage componentName={"HomePage"} />,
-    },
-    {
-      path: "/MovieReview/Details",
-      element: (
-        <ComponentTimingMovieDetailsPage componentName={"MovieDetailsPage"} />
-      ),
-    },
-    {
-      path: "/MovieReview/Metrics",
-      element: <ComponentTimingMetricsPage componentName={"MetricsPage"} />,
-    },
-  ]);
-
   return (
     <Fragment>
       <ComponentTimingProvider>
-        <RouterProvider router={appRoutes} />
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route
+              path="/MovieReview/"
+              element={<ComponentTimingHomePage componentName={"HomePage"} />}
+            />
+            <Route
+              path="/MovieReview/Details"
+              element={
+                <ComponentTimingMovieDetailsPage
+                  componentName={"MovieDetailsPage"}
+                />
+              }
+            />
+            <Route
+              path="/MovieReview/Metrics"
+              element={
+                <ComponentTimingMetricsPage componentName={"MetricsPage"} />
+              }
+            />
+          </Routes>
+        </BrowserRouter>
       </ComponentTimingProvider>
     </Fragment>
   );
