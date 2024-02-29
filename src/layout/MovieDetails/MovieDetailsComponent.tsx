@@ -62,16 +62,15 @@ export const MovieDetailsComponent: FunctionComponent<
         </div>
       ) : (
         <Fragment>
-          <div className="flex min-h-screen max-h-screen overflow-auto">
-            <div className="relative overflow-hidden w-full">
-              <img
-                src={`${process.env.PUBLIC_API_IMAGE_PATH_ORIGINAL}/${details?.backdrop_path}`}
-                className="object-cover w-full h-full"
-                loading={"lazy"}
-                alt="Backdrop"
-              />
-              <div className="absolute top-0 right-0 bottom-0 left-0 h-full w-full bg-fixed bg-[hsla(0,0%,0%,0.5)]">
-                <div className="flex justify-center items-center h-full p-8 md:p-16 lg:p-24 overflow-y-auto overflow-x-hidden flex-col">
+          <div className="flex min-h-screen ">
+            <div
+              className="relative overflow-hidden w-full bg-cover"
+              style={{
+                backgroundImage: `url(${process.env.PUBLIC_API_IMAGE_PATH_ORIGINAL}/${details?.backdrop_path})`,
+              }}
+            >
+              <div className="h-full w-full bg-fixed bg-[hsla(0,0%,0%,0.75)]">
+                <div className="flex justify-center items-center h-full p-8 md:p-16 lg:p-24 flex-col">
                   {details === undefined ? null : (
                     <DetailsContainer {...details} />
                   )}
@@ -80,7 +79,7 @@ export const MovieDetailsComponent: FunctionComponent<
                       <Loading />
                     </div>
                   ) : (
-                    <section className="flex overflow-x-auto gap-4 m-auto max-w-full mt-8 ">
+                    <section className="flex justify-center items-center gap-4 overflow-x-scroll py-8 max-w-[1024px] mt-8">
                       {recommendations &&
                         recommendations.map((recommendation, index) => {
                           const handleRecommendation = () => {
@@ -89,12 +88,17 @@ export const MovieDetailsComponent: FunctionComponent<
 
                           return (
                             <Fragment key={index}>
-                              <img
-                                src={`${process.env.PUBLIC_API_IMAGE_PATH}/${recommendation?.backdrop_path}`}
-                                className="rounded-lg object-cover md:w-64 lg:w-96 w-full h-full"
-                                alt={`Recommendation ${index + 1}`}
-                                onClick={handleRecommendation}
-                              />
+                              <div className="flex-none text-center text-pretty space-y-4 text-white">
+                                <img
+                                  src={`${process.env.PUBLIC_API_IMAGE_PATH}/${recommendation?.backdrop_path}`}
+                                  className="rounded-lg object-cover md:w-64 lg:w-96 w-full h-full"
+                                  alt={`Recommendation ${index + 1}`}
+                                  onClick={handleRecommendation}
+                                />
+                                <p className="font-semibold font-sans text-sm sm:text-base md:text-lg overflow-ellipsis line-clamp-2 truncate">
+                                  {recommendation.title}
+                                </p>
+                              </div>
                             </Fragment>
                           );
                         })}

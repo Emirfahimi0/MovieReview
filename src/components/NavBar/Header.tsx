@@ -9,9 +9,9 @@ export const Header: FunctionComponent = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <header className="bg-slate-900 sticky top-0 z-[20] flex-wrap mx-auto flex w-full items-center justify-between">
+    <header className="bg-slate-900 sticky top-0 z-[20] flex-wrap mx-auto flex w-full items-center justify-between px-8">
       <div className="logo h-16 w-16 my-2">
-        <img src={Logo} className="rounded-full" />
+        <img src={Logo} className="rounded-full w-auto object-contain" />
       </div>
       <NavItems isOpen={isOpen} handleToggle={handleToggleMenu} />
     </header>

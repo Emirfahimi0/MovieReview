@@ -66,10 +66,10 @@ export const TopSection: FunctionComponent<TopSectionProps> = ({
         <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
           <BsChevronCompactRight size={30} onClick={handleNextSlide} />
         </div>
-        <div className="flex top-4 justify-center py-2 max-w-auto">
+        <div className="flex top-4 justify-center py-2 max-w-auto truncate">
           {value.map((_slide: any, index: number) => {
             return (
-              <div key={index} className="text-2xl cursor-pointer ">
+              <div key={index} className="text-2xl cursor-pointer">
                 <BsDot onClick={() => handleCurrentSlide(index)} />
               </div>
             );
