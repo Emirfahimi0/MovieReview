@@ -13,7 +13,7 @@ export const DetailsContainer: FunctionComponent<DetailsContainerProps> = ({
 }: DetailsContainerProps) => {
   return (
     <Fragment>
-      <div className="flex justify-center items-center flex-col gap-4 md:flex-row">
+      <div className="flex justify-center items-center flex-col gap-4 md:flex-row text-pretty">
         <div className="w-64 max-h-max">
           <img
             src={`${process.env.PUBLIC_API_IMAGE_PATH_ORIGINAL}/${poster_path}`}
@@ -41,11 +41,9 @@ export const DetailsContainer: FunctionComponent<DetailsContainerProps> = ({
               );
             })}
           </div>
-          <div className="w-auto mt-4 h-full text-ellipsis overflow-hidden">
+          <div className="w-auto mt-4 text-ellipsis overflow-hidden">
             <p className="text-white text-wrap">{overview}</p>
-          </div>
-          <div className="w-auto mt-4">
-            <p className="text-white"> Release on: {release_date}</p>
+            <p className="w-auto mt-4 text-white">Release on: {release_date}</p>
           </div>
         </div>
       </div>

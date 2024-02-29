@@ -70,7 +70,7 @@ export const MovieDetailsComponent: FunctionComponent<
               }}
             >
               <div className="h-full w-full bg-fixed bg-[hsla(0,0%,0%,0.75)]">
-                <div className="flex justify-center items-center h-full p-8 md:p-16 lg:p-24 flex-col">
+                <div className="top-0 flex justify-center items-center h-full p-8 md:p-16 lg:p-24 flex-col text-justify">
                   {details === undefined ? null : (
                     <DetailsContainer {...details} />
                   )}
@@ -79,7 +79,7 @@ export const MovieDetailsComponent: FunctionComponent<
                       <Loading />
                     </div>
                   ) : (
-                    <section className="flex justify-center items-center gap-4 overflow-x-scroll py-8 max-w-[1024px] mt-8">
+                    <section className="flex justify-center items-center gap-4 overflow-x-scroll py-8 max-w-[1024px] mt-8 w-full">
                       {recommendations &&
                         recommendations.map((recommendation, index) => {
                           const handleRecommendation = () => {
@@ -91,7 +91,7 @@ export const MovieDetailsComponent: FunctionComponent<
                               <div className="flex-none text-center text-pretty space-y-4 text-white">
                                 <img
                                   src={`${process.env.PUBLIC_API_IMAGE_PATH}/${recommendation?.backdrop_path}`}
-                                  className="rounded-lg object-cover md:w-64 lg:w-96 w-full h-full"
+                                  className="rounded-lg object-cover md:w-64 lg:w-96 w-80 h-full"
                                   alt={`Recommendation ${index + 1}`}
                                   onClick={handleRecommendation}
                                 />
