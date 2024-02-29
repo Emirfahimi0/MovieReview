@@ -76,7 +76,7 @@ export const HomeComponent: FunctionComponent<HomeComponentProps> = ({
 
                         return (
                           <Fragment key={index}>
-                            <div className="flex-none bg-white mb-4 rounded-lg text-yellow-400 w-56">
+                            <div className="flex-none bg-white mb-4 rounded-lg text-yellow-400">
                               <MovieCard
                                 handleSetCurrentMovie={handleSetCurrentMovie}
                                 imgPath={`${process.env.PUBLIC_API_IMAGE_PATH}/${movie.poster_path}`}

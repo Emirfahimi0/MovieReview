@@ -62,7 +62,7 @@ export const MovieDetailsComponent: FunctionComponent<
         </div>
       ) : (
         <Fragment>
-          <div className="flex min-h-screen ">
+          <div className="flex min-h-screen">
             <div
               className="relative overflow-hidden w-full bg-cover"
               style={{
